@@ -1,0 +1,19 @@
+<section fxLayout="column"
+         fxLayoutAlign="start start"
+         class="p16">
+  <section #image
+           class="card-outline-accent fxLayout"
+           fxLayoutAlign="center center"
+           [style.width.px]="800"
+           [style.height.px]="800"
+           [style.background-color]="'#f7f7f7'">
+    <section class="card-outline-accent glow-8-accent rounded"
+             [style.background]="gradient"
+             [style.width.px]="600"
+             [style.height.px]="600"></section>
+  </section>
+  <button mat-flat-button
+          color="primary"
+          class="mt16"
+          (click)="download()">Download</button>
+</section>
