@@ -1,15 +1,19 @@
 <section class="mat-typography mat-app-background app-frame"
          [ngClass]="themer.isLight ? 'app-light' : 'app-dark'">
-  <mat-toolbar color="primary"
-               class="app-toolbar sticky-top">
-    <span fxFlex>Export Image</span>
+  <section fxLayout="row"
+           fxLayoutAlign="start center"
+           class="p8">
+    <span class="mat-title m8"
+          fxFlex>Export Image Test</span>
     <button mat-icon-button
+            fxFlexAlign="end"
+            [style.display]="'block'"
             [ngClass]="themer.isLight ? 'color-amber' : 'color-text'"
             (click)="themer.toggleTheme()">
       <mat-icon *ngIf="themer.isLight">brightness_5</mat-icon>
       <mat-icon *ngIf="!(themer.isLight)">brightness_3</mat-icon>
     </button>
-  </mat-toolbar>
+  </section>
   <section class="app-container">
     <router-outlet></router-outlet>
   </section>

@@ -5,7 +5,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
   providedIn: 'root'
 })
 export class ThemeService {
-  isLight = true;
+  isLight = false;
 
   setOverlayContainerTheme = () => {
     if (this.isLight) {
@@ -25,6 +25,13 @@ export class ThemeService {
   constructor(
     private overlay: OverlayContainer
   ) {
+    this.isLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    window.matchMedia('(prefers-color-scheme: light)')
+      .addEventListener('change', (e: MediaQueryListEvent) =>
+        this.isLight = e.matches
+      );
+
     this.setOverlayContainerTheme();
   }
 }
