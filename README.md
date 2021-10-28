@@ -2,7 +2,7 @@
 
 ## Checking Backdrop Filter Support
 
-> See code mentioned below in [./src/export-image-test/app/routes/home/home.route.ts](/src/export-image-test/app/routes/home/home.route.ts)
+See code mentioned below in [./src/export-image-test/app/routes/home/home.route.ts](/src/export-image-test/app/routes/home/home.route.ts)  
 
 The following illustrates the steps that I took to isolate at which point `backdrop-filter` is no longer included as part of the image being exported.
 
