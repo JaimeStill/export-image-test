@@ -2,6 +2,8 @@
 
 ## Checking Backdrop Filter Support
 
+> See code mentioned below in [./src/export-image-test/app/routes/home/home.route.ts](/src/export-image-test/app/routes/home/home.route.ts)
+
 The following illustrates the steps that I took to isolate at which point `backdrop-filter` is no longer included as part of the image being exported.
 
 First, `toSvg` was broken apart into a `getImage` function. Instead of stopping where it returns the data uri, return the `HTMLImageElement` generated from the `createImage` function. `createImage` is the called directly after `toSvg` in the `toCanvas` function. `toCanvas` is the first function called in the `toPng` function.
