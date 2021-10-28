@@ -3,14 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
 
 import { Components } from './components';
-import { Dialogs } from './dialogs';
 import { Directives } from './directives';
 import { Pipes } from './pipes';
 
 @NgModule({
   declarations: [
     ...Components,
-    ...Dialogs,
     ...Directives,
     ...Pipes
   ],
@@ -20,7 +18,6 @@ import { Pipes } from './pipes';
   ],
   exports: [
     ...Components,
-    ...Dialogs,
     ...Directives,
     ...Pipes,
     MaterialModule
