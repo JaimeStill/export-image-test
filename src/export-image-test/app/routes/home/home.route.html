@@ -1,19 +1,58 @@
 <section fxLayout="column"
          fxLayoutAlign="start start"
          class="p16">
-  <section #image
-           class="card-outline-accent fxLayout"
-           fxLayoutAlign="center center"
-           [style.width.px]="800"
-           [style.height.px]="800"
-           [style.background-color]="'#f7f7f7'">
-    <section class="card-outline-accent glow-8-accent rounded"
-             [style.background]="gradient"
-             [style.width.px]="600"
-             [style.height.px]="600"></section>
+  <section fxLayout="row"
+           fxLayoutAlign="start center">
+    <mat-form-field class="my4 mx16">
+      <mat-label>format</mat-label>
+      <mat-select [(ngModel)]="format">
+        <mat-option *ngFor="let f of formats"
+                    [value]="f">{{f}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-stroked-button
+            color="primary"
+            class="my4 mx8"
+            (click)="generate()">Download</button>
+    <button mat-stroked-button
+            class="my4 mx8"
+            (click)="custom()">Custom</button>
   </section>
-  <button mat-flat-button
-          color="primary"
-          class="mt16"
-          (click)="download()">Download</button>
+  <section fxLayout="row | wrap"
+           fxLayoutAlign="start start">
+    <section fxLayout="column"
+             fxLayoutAlign="start center"
+             class="m8">
+      <p class="mat-title m4">Source</p>
+      <section #image
+               class="rounded container-bg"
+               [style.width.px]="400"
+               [style.height.px]="400"
+               [style.background-color]="'#f7f7f7'">
+        <section fxFlex
+                 fxLayout="column"
+                 fxLayoutAlign="center center"
+                 [style.backdrop-filter]="backdrop"
+                 [style.-webkit-backdrop-filter]="backdrop">
+          <section class="card-outline-divider el-12 rounded"
+                   [style.width.px]="360"
+                   [style.height.px]="360"
+                   [style.filter]="filter"
+                   [style.background-color]="'#f7f7f7'"></section>
+        </section>
+      </section>
+    </section>
+    <section fxLayout="column"
+             fxLayoutAlign="start center"
+             class="m8">
+      <p *ngIf="img" class="mat-title m4">SVG</p>
+      <section #svgHost></section>
+    </section>
+    <section fxLayout="column"
+             fxLayoutAlign="start center"
+             class="m8">
+      <p *ngIf="canvas" class="mat-title m4">Canvas</p>
+      <section #canvasHost></section>
+    </section>
+  </section>
 </section>
